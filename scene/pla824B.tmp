@@ -429,4 +429,4 @@ script = ExtResource("1_ihl0x")
 position = Vector2(87, 59)
 sprite_frames = SubResource("SpriteFrames_qt0g5")
 animation = &"back_idle"
-frame_progress = 0.416497
+frame_progress = 0.970257
