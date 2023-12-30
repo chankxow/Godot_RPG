@@ -1,6 +1,6 @@
 [gd_scene load_steps=56 format=3 uid="uid://dggs0imwkpveo"]
 
-[ext_resource type="Script" path="res://script/player.gd" id="1_a2bn7"]
+[ext_resource type="Script" path="res://scene/player.gd" id="1_ihl0x"]
 [ext_resource type="Texture2D" uid="uid://l0gkea4pd4xe" path="res://art/sprites/characters/player.png" id="1_yp36k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rpsef"]
@@ -421,7 +421,7 @@ animations = [{
 }]
 
 [node name="player" type="CharacterBody2D"]
-script = ExtResource("1_a2bn7")
+script = ExtResource("1_ihl0x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -429,4 +429,4 @@ script = ExtResource("1_a2bn7")
 position = Vector2(87, 59)
 sprite_frames = SubResource("SpriteFrames_qt0g5")
 animation = &"side_walk"
-frame_progress = 0.744541
+frame_progress = 0.0774955
