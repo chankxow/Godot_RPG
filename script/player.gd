@@ -3,16 +3,13 @@ extends CharacterBody2D
 var speed = 100
 var current_direction = "none"
 
-
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
-	
 	
 func _physics_process(delta):
 	player_movement(delta)
 	
 func player_movement(delta):
-	
 	if Input.is_action_pressed("ui_up"):
 		play_animation(1)
 		current_direction = "up"
@@ -43,7 +40,6 @@ func player_movement(delta):
 func play_animation(movement):
 	var direction = current_direction
 	var animation = $AnimatedSprite2D
-	
 	if direction == "right":
 		animation.flip_h = false
 		if movement == 1:
