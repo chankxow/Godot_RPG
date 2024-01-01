@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+var enemy_inattack_range = false
+var enemy_attack_cooldown = true
+var health = 100
+var player_alive = true
+
 var speed = 100
 var current_direction = "none"
 
@@ -8,6 +13,7 @@ func _ready():
 	
 func _physics_process(delta):
 	player_movement(delta)
+	enemy_attack()
 	
 func player_movement(delta):
 	if Input.is_action_pressed("ui_up"):
@@ -64,3 +70,20 @@ func play_animation(movement):
 			animation.play("front_walk")
 		elif movement == 0 :
 			animation.play("front_idle")
+
+func player():
+	pass
+
+func _on_player_hitbox_area_shape_entered(body):
+	if body.has_method("enemy"):
+		enemy_inattack_range = true
+
+
+func _on_player_hitbox_area_shape_exited(body):
+	if body.has_method("enemy"):
+		enemy_inattack_range = false
+		
+func enemy_attack():
+	if enemy_inattack_range:
+		print("player took damage")
+

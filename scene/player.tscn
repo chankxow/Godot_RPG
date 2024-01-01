@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dggs0imwkpveo"]
+[gd_scene load_steps=58 format=3 uid="uid://dggs0imwkpveo"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_ihl0x"]
 [ext_resource type="Texture2D" uid="uid://l0gkea4pd4xe" path="res://art/sprites/characters/player.png" id="1_yp36k"]
@@ -423,6 +423,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_7t8p0"]
 radius = 4.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xftdj"]
+radius = 5.0
+height = 18.0
+
 [node name="player" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
@@ -439,3 +443,13 @@ offset = Vector2(-0.5, -10)
 y_sort_enabled = true
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_7t8p0")
+
+[node name="player_hitbox" type="Area2D" parent="."]
+
+[node name="col" type="CollisionShape2D" parent="player_hitbox"]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_xftdj")
+
+[connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]
+[connection signal="area_shape_exited" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_exited"]
+[connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
